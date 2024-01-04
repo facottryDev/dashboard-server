@@ -8,6 +8,4 @@ router.get("/", (req, res) => {
   res.status(200).send("AUTHORIZED");
 });
 
-
-
 export default router;
