@@ -1,11 +1,11 @@
+import { callAuth } from "./lib/middlewares.js";
 import { Router } from "express";
-import { checkAuth } from "./lib/middlewares.js";
 const router = Router();
 
-router.use(checkAuth);
+// router.use(callAuth);
 
 router.get("/", (req, res) => {
-  res.status(200).send("AUTHORIZED");
+  res.status(200).json("HOME");
 });
 
 export default router;
