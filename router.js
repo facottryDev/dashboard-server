@@ -1,11 +1,11 @@
-import { callAuth } from "./lib/middlewares.js";
 import { Router } from "express";
+import { checkAuth } from "./lib/middlewares.js";
 const router = Router();
 
-router.use(callAuth);
+router.use(checkAuth);
 
 router.get("/", (req, res) => {
-  res.status(200).json("HOME");
+  res.status(200).json("Dashboard Home");
 });
 
 export default router;

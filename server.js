@@ -14,12 +14,7 @@ const MONG_URI = process.env.MONG_URI;
 
 // Middlewares
 const corsOptions = {
-  origin:
-    process.env.NODE_ENV === "production"
-      ? [
-          "https://website-gf5k.vercel.app", 
-        ]
-      : "http://localhost:3000",
+  origin: "*",
   credentials: true,
   optionSuccessStatus: 200,
 };
