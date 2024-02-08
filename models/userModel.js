@@ -2,19 +2,18 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    email: {
       type: String,
       required: true,
     },
 
-    email: {
+    name: {
       type: String,
       required: true,
     },
 
     companyID: {
       type: String,
-      required: true,
     },
 
     projects: [
@@ -33,5 +32,5 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model.project ||
+export default mongoose.model.user ||
   mongoose.model("user", userSchema);

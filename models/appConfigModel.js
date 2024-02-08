@@ -8,17 +8,13 @@ const appConfigSchema = new mongoose.Schema(
     },
 
     params: {
-      type: [String],
-      required: true,
-    },
-
-    projectName: {
-      type: String,
+      type: Map,
+      of: String,
       required: true,
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.model.project ||
+export default mongoose.model.appConfig ||
   mongoose.model("appConfig", appConfigSchema);

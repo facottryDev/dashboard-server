@@ -33,7 +33,7 @@ mongoose
       if (process.env.NODE_ENV === "production") {
         console.log("Production Ready");
       } else {
-        console.log(`Server:http://localhost:${PORT}/`);
+        console.log(`Server: http://localhost:${PORT}/`);
       }
     })
   )

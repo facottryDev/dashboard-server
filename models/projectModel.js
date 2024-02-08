@@ -12,9 +12,14 @@ const projectSchema = new mongoose.Schema(
       required: true,
     },
 
+    type: {
+      type: String,
+      default: "PROD"
+    },
+
     CompanyID: {
       type: String,
-      required: true,
+      default: "",
     },
 
     owner: {
@@ -24,28 +29,28 @@ const projectSchema = new mongoose.Schema(
 
     editors: {
       type: String,
-      required: true,
     },
 
     viewers: {
-      type: Number,
-      required: true,
-    },
-
-    filterID: {
-      type: [String],
-      required: true,
-    },
-
-    appConfigID: {
       type: String,
-      required: true,
     },
 
-    playerConfigID: {
-        type: String,
-        required: true,
+    configs: [
+      {
+        filterID: {
+          type: String,
+          required: true,
+        },
+        appConfigID: {
+          type: String,
+          required: true,
+        },
+        playerConfigID: {
+          type: String,
+          required: true,
+        },
       },
+    ],
   },
   { timestamps: true }
 );

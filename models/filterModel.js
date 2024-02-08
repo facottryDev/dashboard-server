@@ -8,17 +8,12 @@ const filterSchema = new mongoose.Schema(
     },
 
     params: {
-      type: [String],
-      required: true,
-    },
-
-    projectName: {
-      type: String,
+      type: Object,
       required: true,
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.model.project ||
+export default mongoose.model.filter ||
   mongoose.model("filter", filterSchema);
