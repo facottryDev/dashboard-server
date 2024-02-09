@@ -7,11 +7,22 @@ const playerConfigSchema = new mongoose.Schema(
       required: true,
     },
 
-    params: {
-      type: Map,
-      of: String,
-      required: true,
-    },
+    params: [
+      {
+        volume: {
+          type: Number,
+          default: 1,
+        },
+        autoplay: {
+          type: Boolean,
+          default: false,
+        },
+        controls: {
+          type: Boolean,
+          default: true,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );

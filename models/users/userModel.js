@@ -14,6 +14,12 @@ const userSchema = new mongoose.Schema(
 
     companyID: {
       type: String,
+      required: true,
+    },
+
+    designation: {
+      type: String,
+      default: "NA",
     },
 
     projects: [
@@ -22,9 +28,11 @@ const userSchema = new mongoose.Schema(
           type: String,
           required: true,
         },
+        
         role: {
           type: String,
           required: true,
+          enum: ['owner', 'editor', 'viewer']
         },
       },
     ],

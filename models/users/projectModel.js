@@ -17,9 +17,9 @@ const projectSchema = new mongoose.Schema(
       default: "PROD"
     },
 
-    CompanyID: {
+    companyID: {
       type: String,
-      default: "",
+      required: true,
     },
 
     owner: {
@@ -27,13 +27,23 @@ const projectSchema = new mongoose.Schema(
       required: true,
     },
 
-    editors: {
-      type: String,
-    },
+    editors: [
+      {
+        userID: {
+          type: String,
+          required: true,
+        }
+      },
+    ],
 
-    viewers: {
-      type: String,
-    },
+    viewers: [
+      {
+        userID: {
+          type: String,
+          required: true,
+        }
+      },
+    ],
 
     configs: [
       {

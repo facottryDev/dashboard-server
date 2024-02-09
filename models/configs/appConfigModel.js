@@ -7,11 +7,18 @@ const appConfigSchema = new mongoose.Schema(
       required: true,
     },
 
-    params: {
-      type: Map,
-      of: String,
-      required: true,
-    },
+    params: [
+      {
+        theme: {
+          type: String,
+          default: "dark",
+        },
+        language: {
+          type: String,
+          default: "en",
+        },
+      },
+    ],
   },
   { timestamps: true }
 );
