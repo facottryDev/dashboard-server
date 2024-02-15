@@ -7,25 +7,19 @@ const playerConfigSchema = new mongoose.Schema(
       required: true,
     },
 
-    params: [
-      {
-        volume: {
-          type: Number,
-          default: 1,
-        },
-        autoplay: {
-          type: Boolean,
-          default: false,
-        },
-        controls: {
-          type: Boolean,
-          default: true,
-        },
+    params: {
+      autoplay: {
+        type: Boolean,
+        default: false,
       },
-    ],
+      controls: {
+        type: Boolean,
+        default: true,
+      },
+    },
   },
   { timestamps: true }
 );
 
-export default mongoose.model.playerConfig ||
-  mongoose.model("playerConfig", playerConfigSchema);
+export default mongoose.model.playerconfig ||
+  mongoose.model("playerconfig", playerConfigSchema);

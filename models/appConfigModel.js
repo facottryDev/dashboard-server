@@ -7,21 +7,19 @@ const appConfigSchema = new mongoose.Schema(
       required: true,
     },
 
-    params: [
-      {
-        theme: {
-          type: String,
-          default: "dark",
-        },
-        language: {
-          type: String,
-          default: "en",
-        },
+    params: {
+      theme: {
+        type: String,
+        required: true,
       },
-    ],
+      language: {
+        type: String,
+        required: true,
+      },
+    },
   },
   { timestamps: true }
 );
 
-export default mongoose.model.appConfig ||
-  mongoose.model("appConfig", appConfigSchema);
+export default mongoose.model.appconfig ||
+  mongoose.model("appconfig", appConfigSchema);

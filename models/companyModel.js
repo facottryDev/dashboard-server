@@ -17,23 +17,8 @@ const companySchema = new mongoose.Schema(
       default: "NA",
     },
 
-    projects: [
-      {
-        projectID: {
-          type: String,
-          required: true,
-        },
-      },
-    ],
-
-    employees: [
-      {
-        email: {
-          type: String,
-          required: true,
-        },
-      },
-    ],
+    projects: [String],
+    employees: [String],
   },
   { timestamps: true }
 );
