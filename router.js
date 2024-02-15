@@ -1,18 +1,25 @@
 import { Router } from "express";
 import { checkAuth } from "./lib/middlewares.js";
+import { getCompanyEmployeesID, getCompanyProjectsID, getProjectUsers, getUserProfile, getUserProjects } from "./controllers/user.js";
 const router = Router();
-router.use(checkAuth);
+
+// router.use(checkAuth);
 
 
 //GET COMPANY EMPLOYEES
+router.get("/get-company-employees", getCompanyEmployeesID);
 
 // GET COMPANY PROJECTS
+router.get("/get-company-projects", getCompanyProjectsID);
 
 // GET PROJECT'S USERS DETAILS
+router.get("/get-project-users", getProjectUsers);
 
 // GET USER'S PROFILE
+router.get("/get-user-projects", getUserProjects);
 
 // GET COMPANY'S PROFILE
+router.get("/get-user-profile", getUserProfile);
 
 
 
