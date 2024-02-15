@@ -29,20 +29,14 @@ const projectSchema = new mongoose.Schema(
 
     editors: [
       {
-        userID: {
-          type: String,
-          required: true,
-        }
-      },
+        type: String,
+      }
     ],
 
     viewers: [
       {
-        userID: {
-          type: String,
-          required: true,
-        }
-      },
+        type: String,
+      }
     ],
 
     configs: [

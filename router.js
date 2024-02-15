@@ -1,10 +1,9 @@
 import { Router } from "express";
 import { checkAuth } from "./lib/middlewares.js";
-import { getCompanyEmployeesID, getCompanyProjectsID, getProjectUsers, getUserProfile, getUserProjects } from "./controllers/user.js";
+import { getCompanyEmployeesID, getCompanyProfile, getCompanyProjectsID, getProjectUsers, getUserProfile, getUserProjects, giveProjectAccess } from "./controllers/user.js";
 const router = Router();
 
 // router.use(checkAuth);
-
 
 //GET COMPANY EMPLOYEES
 router.get("/get-company-employees", getCompanyEmployeesID);
@@ -15,12 +14,17 @@ router.get("/get-company-projects", getCompanyProjectsID);
 // GET PROJECT'S USERS DETAILS
 router.get("/get-project-users", getProjectUsers);
 
-// GET USER'S PROFILE
+// GET USER'S PROJECTS
 router.get("/get-user-projects", getUserProjects);
 
-// GET COMPANY'S PROFILE
+// GET USER'S PROFILE
 router.get("/get-user-profile", getUserProfile);
 
+// GET COMPANY'S PROFILE
+router.get("/get-company-profile", getCompanyProfile);
+
+// GIVE PROJECT ACCESS TO USER
+router.post("/give-project-access", giveProjectAccess);
 
 
 // GET FILTER_ID FROM FILTER PARAMS
@@ -42,7 +46,7 @@ router.get("/get-user-profile", getUserProfile);
 
 
 router.get("/", (req, res) => {
-  res.status(200).json("Dashboard Home");
+  res.status(200).json(req.user);
 });
 
 export default router;
