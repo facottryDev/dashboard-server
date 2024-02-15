@@ -1,35 +1,27 @@
 import { Router } from "express";
 import { checkAuth } from "./lib/middlewares.js";
-import { getCompanyEmployeesID, getCompanyProfile, getCompanyProjectsID, getProjectUsers, getUserProfile, getUserProjects, giveProjectAccess } from "./controllers/user.js";
+import { getCompanyEmployeesID, getCompanyProfile, getCompanyProjectsID, getProjectUsers, getUserProfile, getUserProjects, updateProjectAccess } from "./controllers/user.js";
+import { getConfigsFromFilterId, getFilterIdFromParams } from "./controllers/config.js";
 const router = Router();
 
 // router.use(checkAuth);
 
-//GET COMPANY EMPLOYEES
+// USER BASED ROUTES
 router.get("/get-company-employees", getCompanyEmployeesID);
-
-// GET COMPANY PROJECTS
 router.get("/get-company-projects", getCompanyProjectsID);
-
-// GET PROJECT'S USERS DETAILS
 router.get("/get-project-users", getProjectUsers);
-
-// GET USER'S PROJECTS
 router.get("/get-user-projects", getUserProjects);
-
-// GET USER'S PROFILE
 router.get("/get-user-profile", getUserProfile);
-
-// GET COMPANY'S PROFILE
 router.get("/get-company-profile", getCompanyProfile);
+router.post("/update-project-access", updateProjectAccess);
 
-// GIVE PROJECT ACCESS TO USER
-router.post("/give-project-access", giveProjectAccess);
-
+// CONFIG BASED ROUTES
 
 // GET FILTER_ID FROM FILTER PARAMS
+router.get("/get-filter-id-from-params", getFilterIdFromParams);
 
 // GET APPCONFIG & PLAYERCONFIG FROM FILTER_ID
+router.get("/get-configs-from-filter-id", getConfigsFromFilterId);
 
 // GET APPCONFIG FROM APPCONFIG_ID
 
