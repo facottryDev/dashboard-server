@@ -39,21 +39,24 @@ export const getConfigsFromFilterId = async (req, res) => {
   try {
     const bodySchema = Joi.object({
       filterID: Joi.string().required(),
+      projectID: Joi.string().required(),
     });
     await bodySchema.validateAsync(req.query);
 
-    const { filterID } = req.query;
-    const result = await Project.findOne(
-      { "configs.filterID": filterID },
-      { "configs.$": 1 }
-    );
+    const { filterID, projectID } = req.query;
+    const project = await Project.findOne({ projectID });
 
-    if (!result) {
-      return res.status(404).json({ message: "Filter not found" });
+    if (!project) {
+      return res.status(404).json({ message: "Project not found" });
     }
 
-    const appConfigID = result.configs[0].appConfigID;
-    const playerConfigID = result.configs[0].playerConfigID;
+    const result = project.configs.find((config) => config.filterID === filterID);
+
+    if (!result) {
+      return res.status(404).json({ message: "No configs found for this filter" });
+    }
+
+    const { appConfigID, playerConfigID } = result;
 
     const appConfig = await AppConfig.findOne({ configID: appConfigID });
     const playerConfig = await PlayerConfig.findOne({
