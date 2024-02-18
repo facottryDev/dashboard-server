@@ -16,6 +16,10 @@ const appConfigSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
+      customObject: {
+        type: Object,
+        required: false,
+      }
     },
   },
   { timestamps: true }

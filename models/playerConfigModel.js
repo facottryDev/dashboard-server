@@ -16,6 +16,10 @@ const playerConfigSchema = new mongoose.Schema(
         type: Boolean,
         default: true,
       },
+      customObject: {
+        type: Object,
+        required: false,
+      }
     },
   },
   { timestamps: true }

@@ -17,6 +17,13 @@ const companySchema = new mongoose.Schema(
       default: "NA",
     },
 
+    owner: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+
     projects: [String],
     employees: [String],
   },
